@@ -55,7 +55,7 @@ def export_phn_numbers(url, phn_numbers, output_dir, username, password, pin):
     driver = get_driver()
 
     sign_in(driver, url, username, password, pin)
-
+    os.makedirs(output_dir, exist_ok=True)
     for phn_number in phn_numbers:
         if os.path.isdir(scrape_charts_dir):
             shutil.rmtree(scrape_charts_dir)
